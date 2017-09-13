@@ -1,141 +1,63 @@
-    <script language="javascript">
-    $(document).ready(function(){
-    $("#municipio").change(function () {
-    $("#municipio option:selected").each(function () {
-    idmunicipio = $(this).val();
-    $.post("parroquias.php", { idmunicipio:idmunicipio }, function(data){
-    $("#parroquia").html(data);
-    });
-    window.console&&console.log(idmunicipio);
-    });
-    })
-    });
-    </script>
-    <script language="javascript">
-    $(document).ready(function(){
-    $("#parroquia").change(function () {
-    $("#parroquia option:selected").each(function () {
-    idparroquia = $(this).val();
-    $.post("bodegas.php", { idparroquia:idparroquia }, function(data){
-    $("#bodega").html(data);
-    });
-    window.console&&console.log(idparroquia);
-    });
-    })
-    });
-    </script>
-    <script language="javascript">
-    $(document).ready(function(){
-    $("#municipioB").change(function () {
-    $("#municipioB option:selected").each(function () {
-    idmunicipio = $(this).val();
-    $.post("parroquias.php", { idmunicipio:idmunicipio }, function(data){
-    $("#parroquiaB").html(data);
-    });
-    window.console&&console.log(idmunicipio);
-    });
-    })
-    });
-    </script>
-    <script language="javascript">
-    $(document).ready(function(){
-    $("#parroquiaB").change(function () {
-    $("#parroquiaB option:selected").each(function () {
-    idparroquia = $(this).val();
-    $.post("bodegas.php", { idparroquia:idparroquia }, function(data){
-    $("#bodegaB").html(data);
-    });
-    window.console&&console.log(idparroquia);
-    });
-    })
-    });
-    </script>
+<script language="javascript">
+$(document).ready(function(){
+$("#TiposSelect").change(function () {
+$("#TiposSelect option:selected").each(function () {
+//organismo_id = $(this).val();
+//id1 = $(this).val();
+var idAll = $(this).val();
+var parts = idAll.split(/\s*-\s*/);
+var organismo_id = parts[0]; 
+var tipo_id = parts[1]; 
+//alert(tipo_id);
+  $.get("<?php echo baseUrl ?>admin/solicitudes/combo", { organismo_id:organismo_id }, function(data){
+  $("#OrganismosSelect").html(data);
+  });
+
+  $.get("<?php echo baseUrl ?>admin/solicitudes/categorias", { tipo_id:tipo_id }, function(data){
+  $("#CategoriasSelect").html(data);
+  });
+
+});
+})
+});
+</script>
+
 <div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title text-muted"><i class="fa fa-user-plus fa-2x"></i> INGRESAR SOLICITANTE</h3>
+    <h3 class="panel-title text-muted"><i class="fa fa-user-plus fa-2x"></i> INGRESAR SOLICITUD</h3>
   </div>
   <br>
   <div class="panel-body">
-    <form action="<?php echo baseUrl ?>admin/solicitudes" method="POST">
+    <form action="<?php echo baseUrl ?>admin/solicitudes/documentos" method="POST">
       <?php echo Token::field() ?>
-      <input type="hidden" name="solicitante_id" value="<?php echo $solicitante->id ?>">
+      <input type="hidden"  name="solicitante_id" value="<?php echo $solicitante->id ?>">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <div class="form-group">
-            <select class="form-control" name="nacionalidad">
+            <select id="TiposSelect" class="form-control" name="tipo_solicitud"  onchange="">
               <option value="">Tipo de Solicitudes</option>
               <option value="">-----------------</option>
               <?php foreach ($tipos as $key => $t): ?>
-                <option value="<?php echo $t->id ?>"><?php echo $t->tipo ?></option>
+                <option value="<?php echo $t->organismo_id ?>-<?php echo $t->id ?>"><?php echo $t->nombre ?></option>
               <?php endforeach ?>
             </select>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <div class="form-group">
-            <select class="form-control" name="nacionalidad">
-            </select>
+              <select name="requerimiento_categoria_id" id="CategoriasSelect" class="form-control" required> 
+              </select>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-12">
           <div class="form-group">
-            <input class="form-control" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group">
-            <input class="form-control" type="text" name="fecha_nacimiento" placeholder="Fecha nacimiento" required>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group">
-            <input class="form-control" type="text" name="email" placeholder="Email">
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group">
-            <input class="form-control" type="text" name="telefono_fijo" placeholder="Telefono fijo" required>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group">
-            <input class="form-control" type="text" name="telefono_celular" placeholder="Telefono celular" required>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group">
-            <select class="form-control" name="nacionalidad">
-              <option value="">MUNICIPIO</option>
-              <option value="">------------</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group">
-            <select class="form-control" name="nacionalidad">
-              <option value="">PARROQUIA</option>
-              <option value="">-------------</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group">
-            <input class="form-control" type="text" name="urbanizacion_barrio" placeholder="Urbanización/Barrio" required>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group">
-            <input class="form-control" type="text" name="avenida_calle" placeholder="Avenida/Calle" required>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="form-group">
-            <input class="form-control" type="text" name="casa_edif_apto" placeholder="Casa/Edificio/Apartamento" required>
+              <select name="organismo_id" id="OrganismosSelect" class="form-control" required> 
+              </select>
           </div>
         </div>
       </div>
       <br>
-      <button type="submit" class="btn btn-lg btn-primary pull-right"><i class="fa fa-save fa-2x"></i></button>
+      <button type="submit" class="btn btn-lg btn-primary pull-right"><i class="fa fa-file fa-2x"></i> CONSIGNAR DOCUMENTOS</button>
     </form>
   </div>
 </div>

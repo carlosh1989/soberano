@@ -71,13 +71,13 @@
               <td><?php echo $c->fecha ?></td>
               <td>
                 <?php if ($c->estatus == 1): ?>
-                <button class="btn btn-info btn-default">Verificado</button>
+                <button class="btn btn-info btn-default">Registrado</button>
                 <?php endif ?>
                 <?php if ($c->estatus == 2): ?>
-                <button class="btn btn-default">Asignado</button>
+                <button class="btn btn-default">Consignado</button>
                 <?php endif ?>
                 <?php if ($c->estatus == 3): ?>
-                <button class="btn btn-default">Enviado</button>
+                <button class="btn btn-default">Asignado</button>
                 <?php endif ?>
                 <?php if ($c->estatus == 4): ?>
                 <button class="btn btn-default">Procesado</button>

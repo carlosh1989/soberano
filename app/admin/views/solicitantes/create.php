@@ -10,20 +10,24 @@
       <div class="row">
         <div class="col-lg-1">
           <div class="form-group">
-            <select class="form-control" name="nacionalidad" required>
             <?php if (isset($solicitante->nacionalidad)): ?>
+            <select class="form-control" name="nacionalidad" required readonly>
               <option value="<?php echo $solicitante->nacionalidad ?>"><?php echo $solicitante->nacionalidad ?></option>
-            <?php else: ?>
-              <option value="V">V</option>
-              <option value="E">E</option>
-            <?php endif ?>
             </select>
+            <?php else: ?>
+            <select class="form-control" name="nacionalidad" required>
+            <option value="">Nacionalidad</option>
+            <option value="">----------------</option>
+            <option value="V">V</option>
+            <option value="E">E</option>
+            </select>
+            <?php endif ?>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
           <?php if (isset($solicitante->cedula)): ?>
-            <input class="form-control" type="text" name="cedula" placeholder="Cédula" value="<?php echo $solicitante->cedula ?>" required>
+            <input class="form-control" type="text" name="cedula" placeholder="Cédula" value="<?php echo $solicitante->cedula ?>" required readonly>
           <?php else: ?>
             <input class="form-control" type="text" name="cedula" placeholder="Cédula" required>
           <?php endif ?>
@@ -32,7 +36,7 @@
         <div class="col-lg-4">
           <div class="form-group">
           <?php if (isset($solicitante->nombre_apellido)): ?>
-            <input class="form-control" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" value="<?php echo $solicitante->nombre_apellido ?>" required>
+            <input class="form-control" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" value="<?php echo $solicitante->nombre_apellido ?>" required readonly>
           <?php else: ?>
             <input class="form-control" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required>  
           <?php endif ?>
@@ -41,7 +45,7 @@
         <div class="col-lg-4">
           <div class="form-group">
           <?php if (isset($solicitante->fecha_nacimiento)): ?>
-            <input class="form-control" type="text" name="fecha_nacimiento" placeholder="Fecha nacimiento" value="<?php echo $solicitante->fecha_nacimiento ?>" required>
+            <input class="form-control" type="text" name="fecha_nacimiento" placeholder="Fecha nacimiento" value="<?php echo $solicitante->fecha_nacimiento ?>" required readonly>
           <?php else: ?>
             <input class="form-control" type="text" name="fecha_nacimiento" placeholder="Fecha nacimiento" required>
           <?php endif ?>

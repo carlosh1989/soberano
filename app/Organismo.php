@@ -2,8 +2,8 @@
 namespace App;
 use \Illuminate\Database\Eloquent\Model;
  
-class Banco extends Model {
-    protected $table = 'banco_sangre';
+class Organismo extends Model {
+    protected $table = 'organismos';
 
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];

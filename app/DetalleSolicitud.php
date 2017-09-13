@@ -2,10 +2,11 @@
 namespace App;
 use \Illuminate\Database\Eloquent\Model;
  
-class DonanteEstatus extends Model {
-    protected $table = 'donantes_estatus';
-
+class DetalleSolicitud extends Model {
+    protected $table = 'detalle_solicitud';
+	public $timestamps = false;
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];
 
 }
+

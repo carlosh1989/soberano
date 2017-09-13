@@ -1,3 +1,3 @@
 
-s/${model}/Tipo/
-s/${tabla}/tipo_solicitud/
+s/${model}/Categoria/
+s/${tabla}/requerimientos_categorias/

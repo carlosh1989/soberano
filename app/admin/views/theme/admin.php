@@ -13,6 +13,9 @@
     <script src="<?php echo baseUrl ?>assets/bower/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.css">
     <script src="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.x-git.min.js"></script>
+<script src="<?php echo baseUrl ?>assets/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo baseUrl ?>assets/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
     <style>
     body{
       background-color: #222;
@@ -60,7 +63,7 @@
                 <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                <img style="width: 47px;" id="profile-img" class="profile-img-card" src="" />Soberano</a>
+               <!-- <img style="width: 47px;" id="profile-img" class="profile-img-card" src="" /> -->Soberano</a>   
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -82,7 +85,7 @@
               </nav>
             </div>
             <div class="col-sm-9 col-lg-10">
-            <img width="100%" height="130px;" src="<?php echo baseUrl ?>/assets/img/banner.jpg" alt="">
+           <!-- <img width="100%" height="130px;" src="<?php echo baseUrl ?>/assets/img/banner.jpg" alt=""> -->
               <br>
               <?php echo $content ?>
             </div>
@@ -96,9 +99,7 @@
         <?php if (Message::hasQuestion()): ?>
         <?php echo Message::showQuestion() ?>
         <?php endif ?>
-        <script src="<?php echo baseUrl ?>assets/bower/jquery/dist/jquery.slim.min.js"></script>
-        <script src="<?php echo baseUrl ?>assets/bower/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="<?php echo baseUrl ?>assets/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+
         <script type="text/javascript">
         // get the table element
         var $table = document.getElementById("tablePagination"),
