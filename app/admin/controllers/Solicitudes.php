@@ -4,6 +4,7 @@ namespace App\admin\controllers;
 use App\Categoria;
 use App\DetalleSolicitud;
 use App\Organismo;
+use App\Paso;
 use App\Requerimientos;
 use App\Solicitante;
 use App\Solicitud;
@@ -80,8 +81,15 @@ class Solicitudes
         $solicitud->solicitante_id = $solicitante_id;
         $solicitud->tipo_solicitud_id = $tipo_solicitud_id;
         $solicitud->fecha_hora_registrado = Carbon::now();
-        $solicitud->estatus = 2;
+        $solicitud->estatus = 1;
         $solicitud->save();
+
+        //tabla pivote de pasos
+        $paso = new Paso;
+        $paso->solicitud_id = $solicitud->id;
+        $paso->fecha_hora_registro = Carbon::now();
+        $paso->paso = 2;
+        $paso->save();
 
         //TABLA DETALLES_SOLICITUD LOS DOCUMENTOS A CONSIGNAR
         foreach ($requerimientos as $key => $r) 
@@ -93,19 +101,17 @@ class Solicitudes
             $detalle->requerimiento_id =$r;
             $detalle->consignado = 1;
             $detalle->save();
-            //echo $r;
-            //echo "<hr>";
         }
-        echo $solicitante_id;
+        //echo $solicitante_id;
 
-/*        if($solicitante->id and $detalle->id)
+        if($solicitud->id and $detalle->id)
         {
-            Success('');
+            Success('solicitantes/'.$solicitante_id,'La solicitud fue realizada..!');
         }
         else
         {
-
-        }*/
+            Error('solicitantes/'.$solicitante_id,'Error al crear solicitud!');
+        }
     }
 
     public function show($id)

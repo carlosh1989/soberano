@@ -1,3 +1,3 @@
 
-s/${model}/Categoria/
-s/${tabla}/requerimientos_categorias/
+s/${model}/Paso/
+s/${tabla}/pasos/
