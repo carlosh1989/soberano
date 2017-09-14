@@ -6,9 +6,9 @@
                     <div class="col-lg-12">
                         <img width="200" class="img-responsive" src="<?php echo baseUrl ?>assets/img/doctor.png" alt="">
                         <div class="intro-text">
-                            <h1 class="name">BANCO DE SANGRE</h1>
+                            <h1 class="name">SOBERANO</h1>
                             <hr class="star-light">
-                            <span class="skills">Donar es dar vida.</span>
+                            <span class="skills">Atención al ciudadano.</span>
                         </div>
                     </div>
                 </div>

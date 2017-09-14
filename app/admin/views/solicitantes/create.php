@@ -20,6 +20,41 @@ $('#IngresarSolicitante').click(function () {
 });
 </script>
 
+<script language="javascript">
+$(document).ready(function(){
+var inputEmail = $("#inputEmail").val();
+//alert(tipo_id);
+$.get("<?php echo baseUrl ?>admin/solicitantes/parroquias", { idMunicipio:idMunicipio }, function(data){
+$("#ParroquiaSelect").html(data);
+});
+});
+
+$('#IngresarSolicitante').click(function () {
+      $(":input").each(function(){
+          this.value = this.value.toUpperCase();          
+      });
+});
+
+
+function enviar(argument) {
+  var email = $("#inputEmail").val();
+  //alert(inputEmail);
+$.get("<?php echo baseUrl ?>admin/solicitantes/verificar_email", { email:email }, function(existe){
+
+if(existe == true) {
+  swal(
+  'Error...',
+  'El email ya esta registrado por solicitante.',
+  'error'
+)
+} 
+else {
+$("#IngresarSolicitante").submit();
+}
+});
+}
+</script>
+
 <div id="panel" class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title text-muted"><i class="fa fa-user-plus fa-2x"></i> INGRESAR SOLICITANTE</h3>
@@ -75,17 +110,17 @@ $('#IngresarSolicitante').click(function () {
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email">
+            <input id="inputEmail" class="form-control" type="email" name="email" placeholder="Email">
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <input class="form-control" type="number" name="telefono1" placeholder="Telefono n°1" required>
+            <input class="form-control" type="number" min="11" step="1" name="telefono1" placeholder="Telefono n°1" required>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <input class="form-control" type="number" name="telefono2" placeholder="Telefono n°2">
+            <input class="form-control" type="number" min="11" step="1" name="telefono2" placeholder="Telefono n°2">
           </div>
         </div>
         <div class="col-lg-4">
@@ -157,7 +192,7 @@ $('#IngresarSolicitante').click(function () {
         </div>
       </div>
       <br>
-      <button type="submit" class="btn btn-lg btn-primary pull-right"><i class="fa fa-save fa-2x"></i></button>
     </form>
+      <button onclick="enviar()" id="botonSubmit" type="submit" class="btn btn-lg btn-primary pull-right"><i class="fa fa-save fa-2x"></i></button>
   </div>
 </div>

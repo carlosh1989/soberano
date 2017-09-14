@@ -9,7 +9,7 @@
           <?php echo Token::field() ?>
           <div class="col-md-6">
             <div class="col-md-10">
-              <input class="form-control" data-inputmask="'mask': '99999999'" name="cedula" type="text" id="myInput" placeholder="Cédula de solicitante..">
+              <input class="form-control" name="cedula" type="number" min="3" step="1" id="myInput" placeholder="Cédula de solicitante..">
             </div>
             <div class="col-md-2">
               <div class="form-group">

@@ -33,6 +33,31 @@ class Solicitantes
         } 
     }
 
+    public function verificar_email()
+    {
+        extract($_GET);
+
+        if($email)
+        {
+            $solicitante = Solicitante::where('email',$email)->first();
+            
+            if(!empty($solicitante))
+            {
+                $existe = 1;
+            }
+            else
+            {
+                $existe = 0;
+            }
+        }
+        else
+        {
+            $existe = 0;
+        }
+    
+        echo json_encode($existe);
+    }
+
     public function create()
     {
         extract($_POST);
@@ -105,6 +130,8 @@ class Solicitantes
     {
         //Arr($_POST);
         extract($_POST);
+        extract($_GET);
+
         list($fecha_registro,$hora_registro) = explode(' ', $fecha_hora_registro);
         $solicitante = new Solicitante;
         $solicitante->nacionalidad = $nacionalidad;

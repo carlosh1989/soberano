@@ -13,7 +13,7 @@
     <script src="<?php echo baseUrl ?>assets/bower/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.css">
     <script src="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.x-git.min.js"></script>
+    <script src="<?php echo baseUrl ?>assets/bower/jquery/dist/jquery.min.js"></script>
     <script src="<?php echo baseUrl ?>assets/bower/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?php echo baseUrl ?>assets/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
     <script src="<?php echo baseUrl ?>assets/bower/inputmask/dist/jquery.inputmask.bundle.js"></script>
@@ -73,7 +73,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="<?php echo baseUrl ?>">INICIO</a></li>
-                    <li><a href="<?php echo baseUrl ?>admin/solicitudes">SOLICITUD</a></li>
+                    <li><a href="<?php echo baseUrl ?>admin/solicitantes">SOLICITANTES</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

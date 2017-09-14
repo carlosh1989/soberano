@@ -83,7 +83,7 @@ class Solicitudes
         $solicitud->estatus = 2;
         $solicitud->save();
 
-        //TABLA DETALLES_SOLICITUD
+        //TABLA DETALLES_SOLICITUD LOS DOCUMENTOS A CONSIGNAR
         foreach ($requerimientos as $key => $r) 
         {
             $detalle = new DetalleSolicitud;
