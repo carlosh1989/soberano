@@ -1,6 +1,6 @@
 <div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title text-muted"><i class="fa fa-user fa-2x"></i><b> SOLCITANTE</b> <?php echo strtoupper($solicitante->nombre_apellido) ?>
+    <h3 class="panel-title text-muted"><i class="fa fa-user fa-2x"></i><b> SOLICITANTE</b> <?php echo strtoupper($solicitante->nombre_apellido) ?>
     </h3>
   </div>
   <div class="panel-body">
@@ -22,12 +22,12 @@
               <td><?php echo $solicitante->email ?></td>
             </tr>
             <tr>
-              <td style="background: #E0E0E0;"><b><i class="fa fa-volume-control-phone"></i> Telefono Fijo:</b></td>
-              <td><?php echo $solicitante->telefono_fijo ?></td>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-volume-control-phone"></i> Telefono n°1:</b></td>
+              <td><?php echo $solicitante->telefono1 ?></td>
             </tr>
             <tr>
-              <td style="background: #E0E0E0;"><b><i class="fa fa-mobile"></i> Telefono Celular:</b></td>
-              <td><?php echo $solicitante->telefono_celular ?></td>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-mobile"></i> Telefono n°2:</b></td>
+              <td><?php echo $solicitante->telefono2 ?></td>
             </tr>
             <tr>
               <td style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Municipio:</b></td>
@@ -59,7 +59,7 @@
         <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
           <thead>
             <tr class="bg-primary text-white">
-              <th>Fecha</th>
+              <th>Fecha Hora Ingreso</th>
               <th>Estatus</th>
               <th>Ver</th>
             </tr>
@@ -68,7 +68,9 @@
             <?php if ($solicitante->solicitudes): ?>
             <?php foreach ($solicitante->solicitudes as $c): ?>
             <tr>
-              <td><?php echo $c->fecha ?></td>
+              <td>
+              <?php echo $c->fecha_hora_registrado ?>
+              </td>
               <td>
                 <?php if ($c->estatus == 1): ?>
                 <button class="btn btn-info btn-default">Registrado</button>

@@ -1,12 +1,34 @@
+<script language="javascript">
+$(document).ready(function(){
+$("#municipioSelect").change(function () {
+$("#municipioSelect option:selected").each(function () {
+//organismo_id = $(this).val();
+//id1 = $(this).val();
+var idMunicipio = $(this).val();
+//alert(tipo_id);
+$.get("<?php echo baseUrl ?>admin/solicitantes/parroquias", { idMunicipio:idMunicipio }, function(data){
+$("#ParroquiaSelect").html(data);
+});
+});
+})
+});
+
+$('#IngresarSolicitante').click(function () {
+      $(":input").each(function(){
+          this.value = this.value.toUpperCase();          
+      });
+});
+</script>
+
 <div id="panel" class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title text-muted"><i class="fa fa-user-plus fa-2x"></i> INGRESAR SOLICITANTE</h3>
   </div>
   <br>
   <div class="panel-body">
-    <form action="<?php echo baseUrl ?>admin/solicitantes" method="POST">
+    <form id="IngresarSolicitante" action="<?php echo baseUrl ?>admin/solicitantes" method="POST">
       <?php echo Token::field() ?>
-        <input type="hidden" name="fecha_hora_registro" value="<?php echo $solicitante->fecha_hora_registro ?>">
+      <input type="hidden" name="fecha_hora_registro" value="<?php echo $solicitante->fecha_hora_registro ?>">
       <div class="row">
         <div class="col-lg-1">
           <div class="form-group">
@@ -16,39 +38,39 @@
             </select>
             <?php else: ?>
             <select class="form-control" name="nacionalidad" required>
-            <option value="">Nacionalidad</option>
-            <option value="">----------------</option>
-            <option value="V">V</option>
-            <option value="E">E</option>
+              <option value="">Nacionalidad</option>
+              <option value="">----------------</option>
+              <option value="V">V</option>
+              <option value="E">E</option>
             </select>
             <?php endif ?>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-          <?php if (isset($solicitante->cedula)): ?>
+            <?php if (isset($solicitante->cedula)): ?>
             <input class="form-control" type="text" name="cedula" placeholder="Cédula" value="<?php echo $solicitante->cedula ?>" required readonly>
-          <?php else: ?>
+            <?php else: ?>
             <input class="form-control" type="text" name="cedula" placeholder="Cédula" required>
-          <?php endif ?>
+            <?php endif ?>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-          <?php if (isset($solicitante->nombre_apellido)): ?>
+            <?php if (isset($solicitante->nombre_apellido)): ?>
             <input class="form-control" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" value="<?php echo $solicitante->nombre_apellido ?>" required readonly>
-          <?php else: ?>
-            <input class="form-control" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required>  
-          <?php endif ?>
+            <?php else: ?>
+            <input class="form-control" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required>
+            <?php endif ?>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-          <?php if (isset($solicitante->fecha_nacimiento)): ?>
+            <?php if (isset($solicitante->fecha_nacimiento)): ?>
             <input class="form-control" type="text" name="fecha_nacimiento" placeholder="Fecha nacimiento" value="<?php echo $solicitante->fecha_nacimiento ?>" required readonly>
-          <?php else: ?>
+            <?php else: ?>
             <input class="form-control" type="text" name="fecha_nacimiento" placeholder="Fecha nacimiento" required>
-          <?php endif ?>
+            <?php endif ?>
           </div>
         </div>
         <div class="col-lg-4">
@@ -58,24 +80,24 @@
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <input class="form-control" type="number" name="telefono_fijo" placeholder="Telefono fijo">
+            <input class="form-control" type="number" name="telefono1" placeholder="Telefono n°1" required>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <input class="form-control" type="number" name="telefono_celular" placeholder="Telefono celular" required>
+            <input class="form-control" type="number" name="telefono2" placeholder="Telefono n°2">
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <select class="form-control" name="municipio_id">
-              <?php 
+            <select id="municipioSelect" class="form-control" name="municipio_id">
+              <?php
               use App\Municipio;
-              $municipios = Municipio::all(); 
+              $municipios = Municipio::all();
               ?>
-              <?php if (isset($solicitante->municipio)): ?>
-                <?php $municipio_solicitante = Municipio::find($solicitante->municipio); ?>
-                <option value="<?php echo $municipio_solicitante->id ?>"><?php echo $municipio_solicitante->nombre ?></option>
+              <?php if(isset($solicitante->municipio)): ?>
+              <?php $municipio_solicitante = Municipio::find($solicitante->municipio); ?>
+              <option value="<?php echo $municipio_solicitante->id ?>"><?php echo $municipio_solicitante->nombre ?></option>
               <?php else: ?>
               <option value="">MUNICIPIOS</option>
               <?php endif ?>
@@ -88,14 +110,14 @@
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <select class="form-control" name="parroquia_id">
-              <?php 
+            <select id="ParroquiaSelect" class="form-control" name="parroquia_id">
+              <?php
               use App\Parroquia;
-              $parroquias = Parroquia::all(); 
+              $parroquias = Parroquia::all();
               ?>
               <?php if (isset($solicitante->parroquia)): ?>
-                <?php $parroquia_solicitante = Parroquia::find($solicitante->parroquia); ?>
-                <option value="<?php echo $parroquia_solicitante->id ?>"><?php echo $municipio_solicitante->nombre ?></option>
+              <?php $parroquia_solicitante = Parroquia::find($solicitante->parroquia); ?>
+              <option value="<?php echo $parroquia_solicitante->id ?>"><?php echo $municipio_solicitante->nombre ?></option>
               <?php else: ?>
               <option value="">PARROQUIAS</option>
               <?php endif ?>
@@ -108,29 +130,29 @@
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-          <?php if (isset($solicitante->urbanizacion_barrio)): ?>
+            <?php if (isset($solicitante->urbanizacion_barrio)): ?>
             <input class="form-control" type="text" name="urbanizacion_barrio" placeholder="Urbanización/Barrio" value="<?php echo $solicitante->urbanizacion_barrio ?>" required>
-          <?php else: ?>
+            <?php else: ?>
             <input class="form-control" type="text" name="urbanizacion_barrio" placeholder="Urbanización/Barrio" required>
-          <?php endif ?>
+            <?php endif ?>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-          <?php if (isset($solicitante->avenida_calle)): ?>
+            <?php if (isset($solicitante->avenida_calle)): ?>
             <input class="form-control" type="text" name="avenida_calle" placeholder="Avenida/Calle" value="<?php echo $solicitante->avenida_calle ?>" required>
-          <?php else: ?>
+            <?php else: ?>
             <input class="form-control" type="text" name="avenida_calle" placeholder="Avenida/Calle" required>
-          <?php endif ?>
+            <?php endif ?>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-          <?php if (isset($solicitante->casa_edificio_apartamento)): ?>
+            <?php if (isset($solicitante->casa_edificio_apartamento)): ?>
             <input class="form-control" type="text" name="casa_edificio_apartamento" placeholder="Casa/Edificio/Apartamento" value="<?php echo $solicitante->casa_edificio_apartamento ?>" required>
-          <?php else: ?>
+            <?php else: ?>
             <input class="form-control" type="text" name="casa_edificio_apartamento" placeholder="Casa/Edificio/Apartamento" required>
-          <?php endif ?>
+            <?php endif ?>
           </div>
         </div>
       </div>

@@ -20,6 +20,7 @@
         "datatables.net": "*",
         "datatables.net-bs": "*",
         "EasyAutocomplete": "*",
-        "lightbox2": "*"
+        "lightbox2": "*",
+        "jquery-mask-plugin": "*"
     }
 }

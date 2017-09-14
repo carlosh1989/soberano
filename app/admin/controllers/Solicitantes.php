@@ -3,6 +3,7 @@ namespace App\admin\controllers;
 
 use App\Carga;
 use App\Jefe;
+use App\Parroquia;
 use App\Solicitante;
 use Carbon\Carbon;
 use System\tools\rounting\Redirect;
@@ -18,6 +19,18 @@ class Solicitantes
     {
         $solicitantes = Solicitante::all();
         View(compact('solicitantes'));
+    }
+
+    public function parroquias()
+    {
+        extract($_GET);
+        $parroquias = Parroquia::where('municipio_id',$idMunicipio)->get();
+        //var_dump($parroquias);
+        echo "<option value=''>PARROQUIA</option>";
+        echo "<optgroup label='-------'></optgroup>";
+        foreach ($parroquias as $key => $parroquia) {
+            echo '<option value="'.$parroquia->id.'">'.$parroquia->nombre.'</option>';
+        } 
     }
 
     public function create()
@@ -101,8 +114,8 @@ class Solicitantes
         $solicitante->hora_registro = $hora_registro;
         $solicitante->municipio_id = $municipio_id;
         $solicitante->parroquia_id = $parroquia_id;
-        $solicitante->telefono_celular = $telefono_celular;
-        $solicitante->telefono_fijo = $telefono_fijo;
+        $solicitante->telefono1 = $telefono1;
+        $solicitante->telefono2 = $telefono2;
         $solicitante->urbanizacion_barrio = $urbanizacion_barrio;
         $solicitante->avenida_calle = $avenida_calle;
         $solicitante->casa_edificio_apartamento = $casa_edificio_apartamento;
