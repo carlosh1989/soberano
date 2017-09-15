@@ -21,7 +21,9 @@
       </div>
     </div>
     <br>
-    <h4 class="text-center"><b>Solicitantes Registrados</b></h4>
+    <h5 class="text-muted text-primary text-center">
+    SOLICITANTE REGISTRADOS
+    </h5>
     <div class="row">
       <div class="col-md-12">
         <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
@@ -29,7 +31,7 @@
             <tr class="bg-primary text-white">
               <th>Nombre</th>
               <th>Cédula</th>
-              <th>Telefono celular</th>
+              <th>Telefono N°1</th>
               <th>Ver</th>
             </tr>
           </thead>

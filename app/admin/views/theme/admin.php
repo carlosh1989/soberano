@@ -74,6 +74,7 @@
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="<?php echo baseUrl ?>">INICIO</a></li>
                     <li><a href="<?php echo baseUrl ?>admin/solicitantes">SOLICITANTES</a></li>
+                    <li><a href="<?php echo baseUrl ?>admin/solicitudes">SOLICITUDES</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
                       <li><a href="#" id="" data-toggle="collapse" data-target="#submenu1" aria-expanded="false"><i class="fa fa-cog"></i> Opciones</a>

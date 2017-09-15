@@ -20,7 +20,17 @@ class Solicitudes
 
     public function index()
     {
-        View();
+        extract($_GET);
+        if(isset($tipo))
+        {
+            $solicitudes = Solicitud::where('tipo_solicitud_id',$tipo)->get();
+        }
+        else
+        {
+            $solicitudes = Solicitud::all();
+        }
+        
+        View(compact('solicitudes'));
     }
 
     public function create()
@@ -40,7 +50,6 @@ class Solicitudes
         $data['tipo_solicitud_id'] = $tipo_solicitud_id;
         $data['requerimiento_categoria_id'] = $requerimiento_categoria_id;
         $data['requerimientos'] = Requerimientos::where('tipo_solicitud_id',$tipo_solicitud_id)->get();
-
         //Arr($requerimientos);
         View($data);
     }
@@ -116,7 +125,8 @@ class Solicitudes
 
     public function show($id)
     {
-
+        $solicitud = Solicitud::find($id);
+        View(compact('solicitud'));
     }
 
     public function edit($id)

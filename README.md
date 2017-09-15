@@ -16,3 +16,5 @@
 
 
 # soberano
+
+#https://modess.io/simple-pagination-in-php-with-the-laravel-pagination-package/

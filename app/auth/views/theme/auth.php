@@ -37,7 +37,7 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
-                    <a style="position: absolute; margin-top: -30px;" class="navbar-brand" href="<?php echo baseUrl ?>home/principal"><i style="border-radius: 200px;border: 1px solid #777;padding: 25px;background: #fff;box-shadow:0px 0px 0px #555;background: #fff;color: #18BC9C;" class="fa fa-medkit fa-3x text-danger"></i></a>
+                    <a style="position: absolute; margin-top: -30px;" class="navbar-brand" href="<?php echo baseUrl ?>home/principal"><i style="border-radius: 200px;border: 1px solid #777;padding: 25px;background: #fff;box-shadow:0px 0px 0px #555;background: #fff;color: #18BC9C;" class="fa fa-file fa-3x text-danger"></i></a>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>

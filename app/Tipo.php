@@ -1,5 +1,6 @@
 <?php 
 namespace App;
+use App\Requerimientos;
 use \Illuminate\Database\Eloquent\Model;
  
 class Tipo extends Model {
@@ -8,5 +9,9 @@ class Tipo extends Model {
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];
 
+    public function requerimientos()
+    {
+        return $this->hasMany(Requerimientos::class,'tipo_solicitud_id','id');
+    }
 }
 

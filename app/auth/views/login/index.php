@@ -45,8 +45,8 @@
                         <div class="row">
                             <div class="footer-col col-md-4">
                                 <h3>Localización</h3>
-                                <p>Barinas,
-                                <br>Hospital Luis Razzetti</p>
+                                <p>
+                                <br></p>
                             </div>
                             <div class="footer-col col-md-4">
                                 <h3>ALREDEDOR DE LA WEB</h3>
@@ -70,7 +70,7 @@
                             </div>
                             <div class="footer-col col-md-4">
                                 <h3>Sobre Nosotros</h3>
-                                <p>La Sociedad Venezolana de Hematología es una organización científica integrada por profesionales de la Hematología con el fin de promover el desarrollo de la especialidad, fomentar la investigación, la docencia y la práctica médica guiada por rigor científico y principios de bioética, para el beneficio de la población venezolana.</p>
+                                
                             </div>
                         </div>
                     </div>

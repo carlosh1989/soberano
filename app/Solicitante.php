@@ -20,7 +20,7 @@ class Solicitante extends Model {
 
     public function solicitudes()
     {
-        return $this->hasMany(Solicitud::class,'solicitante_id','id')->orderBy('id', 'DESC');;
+        return $this->hasMany(Solicitud::class,'solicitante_id','id')->orderBy('id', 'DESC');
     }
 
     public function solicitud()

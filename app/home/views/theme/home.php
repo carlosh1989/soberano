@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Banco de Sangre</title>
+        <title>Soberano</title>
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/bootstrap/dist/css/bootstrap.min.css">
         <!-- Theme CSS -->
@@ -63,7 +63,6 @@
                     </div>
                     <!-- /.navbar-collapse -->
                 </div>
-
                 <div class="visible-xs visible-sm">
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse bg-primary" id="bs-example-navbar-collapse-1">
@@ -83,7 +82,6 @@
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
-
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header page-scroll">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -96,7 +94,7 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-         <?php echo $content ?>
+        <?php echo $content ?>
         <!-- /container -->
         <!-- MENSAJES FLASH SWEET ALERT 2 -->
         <?php if (Message::hasMessages()): ?>

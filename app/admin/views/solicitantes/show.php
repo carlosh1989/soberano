@@ -6,7 +6,6 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-6 animated fadeIn">
-        <h4 class="text-center"><b>Información del Solicitante</b></h4>
         <table class="table table-user-information panel panel-default animated fadeIn">
           <tbody>
             <tr>
@@ -52,15 +51,18 @@
           </tbody>
         </table>
       </div>
-      <div class="col-lg-6 animated fadeIn">
-        <h4 class="text-center"><b>Historial de Solicitudes</b>
-        <a class="btn btn-success pull-right" href="<?php echo baseUrl ?>admin/solicitudes/create/<?php echo $solicitante->id ?>"><i class="fa fa-plus"></i> Agregar Solicitud</a>
-        </h4>
+      <div class="col-lg-6 animated fadeIn panel panel-default animated">
+        <div class="panel-heading">
+          <h5 class="text-muted text-primary">
+          <i class="fa fa-file"></i> Documentos Consignados
+          <a class="btn btn-success pull-right" href="<?php echo baseUrl ?>admin/solicitudes/create/<?php echo $solicitante->id ?>"><i class="fa fa-plus"></i> Agregar Solicitud</a>
+          </h5>
+        </div>
         <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
           <thead>
             <tr class="bg-primary text-white">
               <th>Fecha Hora Ingreso</th>
-              <th>Estatus</th>
+              <th>Paso Actual</th>
               <th>Ver</th>
             </tr>
           </thead>
@@ -69,19 +71,21 @@
             <?php foreach ($solicitante->solicitudes as $c): ?>
             <tr>
               <td>
-              <?php echo $c->fecha_hora_registrado ?>
+                <?php echo $c->fecha_hora_registrado ?>
               </td>
               <td>
-                <?php if ($c->estatus == 1): ?>
+                
+                <?php if ($c->pasos->paso == 1): ?>
                 <button class="btn btn-info btn-default">Registrado</button>
                 <?php endif ?>
-                <?php if ($c->estatus == 2): ?>
-                <button class="btn btn-default">Consignado</button>
+                <?php if ($c->pasos->paso == 2): ?>
+                <button class="btn btn-default"><i class="fa fa-clipboard" aria-hidden="true"></i>
+                Asignado y Consignado</button>
                 <?php endif ?>
-                <?php if ($c->estatus == 3): ?>
+                <?php if ($c->pasos->paso == 3): ?>
                 <button class="btn btn-default">Asignado</button>
                 <?php endif ?>
-                <?php if ($c->estatus == 4): ?>
+                <?php if ($c->pasos->paso == 4): ?>
                 <button class="btn btn-default">Procesado</button>
                 <?php endif ?>
               </td>
