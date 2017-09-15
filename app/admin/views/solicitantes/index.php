@@ -1,6 +1,6 @@
 <div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title text-muted"><i class="fa fa-user-plus fa-2x"></i> Solicitante</h3>
+    <h3 class="panel-title text-muted "><i class="fa fa-user-plus fa-2x"></i> SOLICITANTE</h3>
   </div>
   <div class="panel-body">
     <div class="row">
@@ -29,19 +29,21 @@
         <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
           <thead>
             <tr class="bg-primary text-white">
-              <th>Nombre</th>
-              <th>Cédula</th>
-              <th>Telefono N°1</th>
-              <th>Ver</th>
+              <th width="20%" class="text-uppercase">Nombre</th>
+              <th width="20%" class="text-uppercase">Cédula</th>
+              <th width="20%" class="text-uppercase">Telefono N°1</th>
+              <th width="20%" class="text-uppercase">Telefono N°2</th>
+              <th width="1%" class="text-uppercase">Ver</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($solicitantes as $c): ?>
             <tr>
-              <td><?php echo $c->nombre_apellido ?></td>
-              <td><?php echo $c->cedula ?></td>
-              <td><?php echo $c->telefono_celular ?></td>
-              <td width="15%">
+              <td class="text-uppercase"><?php echo $c->nombre_apellido ?></td>
+              <td class="text-uppercase"><?php echo $c->cedula ?></td>
+              <td class="text-uppercase"><?php echo $c->telefono1 ?></td>
+              <td class="text-uppercase"><?php echo $c->telefono2 ?></td>
+              <td class="text-uppercase" width="15%">
                 <a class="btn btn-default" href="<?php echo baseUrl ?>admin/solicitantes/<?php echo $c->id ?>"><i class="fa fa-search text-primary"></i></a>
               </td>
             </tr>

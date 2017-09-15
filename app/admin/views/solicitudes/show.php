@@ -34,27 +34,27 @@ display: none;
       <div class="col-lg-6 animated fadeIn">
         <table class="table table-user-information panel panel-default animated fadeIn">
           <tbody>
-            <tr>
-              <td width="30%" style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Solicitante:</b></td>
+            <tr class="text-uppercase">
+              <td width="35%" style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Solicitante:</b></td>
               <td><?php echo ucwords($solicitud->solicitante->nombre_apellido) ?></td>
             </tr>
-            <tr>
+            <tr class="text-uppercase">
               <td style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Requerimiento:</b></td>
               <td><?php echo ucwords($solicitud->requerimiento_categoria->nombre) ?></td>
             </tr>
-            <tr>
+            <tr class="text-uppercase">
               <td style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Organismo Asignado:</b></td>
               <td><?php echo ucwords($solicitud->organismo->nombre) ?></td>
             </tr>
-            <tr>
+            <tr class="text-uppercase">
               <td style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Fecha Registro:</b></td>
               <td><?php echo $fecha ?></td>
             </tr>
-            <tr>
+            <tr class="text-uppercase">
               <td style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Hora Registro:</b></td>
               <td><?php echo $hora ?></td>
             </tr>
-            <tr>
+            <tr class="text-uppercase">
               <td style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Estatus:</b></td>
               <td>
                 <?php if ($solicitud->estatus == 1): ?>

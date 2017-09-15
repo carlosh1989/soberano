@@ -1,6 +1,6 @@
 <div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title text-muted"><i class="fa fa-user fa-2x"></i><b> SOLICITANTE</b> <?php echo strtoupper($solicitante->nombre_apellido) ?>
+    <h3 class="panel-title text-muted"><i class="fa fa-user fa-2x"></i> SOLICITANTE<b> <?php echo strtoupper($solicitante->nombre_apellido) ?></b>
     </h3>
   </div>
   <div class="panel-body">
@@ -9,44 +9,44 @@
         <table class="table table-user-information panel panel-default animated fadeIn">
           <tbody>
             <tr>
-              <td style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Nombre:</b></td>
-              <td><?php echo ucwords($solicitante->nombre_apellido) ?></td>
+              <td width="35%" class="text-uppercase" style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Nombre:</b></td>
+              <td class="text-uppercase"><?php echo ucwords($solicitante->nombre_apellido) ?></td>
             </tr>
             <tr>
-              <td style="background: #E0E0E0;"><b><i class="fa fa-address-card"></i> Cédula:</b></td>
-              <td><?php echo $solicitante->cedula ?></td>
+              <td class="text-uppercase" style="background: #E0E0E0;"><b><i class="fa fa-address-card"></i> Cédula:</b></td>
+              <td class="text-uppercase"><?php echo $solicitante->cedula ?></td>
             </tr>
             <tr>
-              <td style="background: #E9E9E9;"><b><i class="fa fa-envelope"></i> Email:</b></td>
-              <td><?php echo $solicitante->email ?></td>
+              <td class="text-uppercase" style="background: #E9E9E9;"><b><i class="fa fa-envelope"></i> Email:</b></td>
+              <td class="text-uppercase"><?php echo $solicitante->email ?></td>
             </tr>
             <tr>
-              <td style="background: #E0E0E0;"><b><i class="fa fa-volume-control-phone"></i> Telefono n°1:</b></td>
-              <td><?php echo $solicitante->telefono1 ?></td>
+              <td class="text-uppercase" style="background: #E0E0E0;"><b><i class="fa fa-volume-control-phone"></i> Telefono n°1:</b></td>
+              <td class="text-uppercase"><?php echo $solicitante->telefono1 ?></td>
             </tr>
             <tr>
-              <td style="background: #E0E0E0;"><b><i class="fa fa-mobile"></i> Telefono n°2:</b></td>
-              <td><?php echo $solicitante->telefono2 ?></td>
+              <td class="text-uppercase" style="background: #E0E0E0;"><b><i class="fa fa-mobile"></i> Telefono n°2:</b></td>
+              <td class="text-uppercase"><?php echo $solicitante->telefono2 ?></td>
             </tr>
             <tr>
               <td style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Municipio:</b></td>
               <td><?php echo $solicitante->municipio->nombre ?></td>
             </tr>
             <tr>
-              <td style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Parroquia:</b></td>
-              <td><?php echo $solicitante->parroquia->nombre ?></td>
+              <td class="text-uppercase" style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Parroquia:</b></td>
+              <td class="text-uppercase"><?php echo $solicitante->parroquia->nombre ?></td>
             </tr>
             <tr>
-              <td style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Urbanización/Barrio:</b></td>
-              <td><?php echo $solicitante->urbanizacion_barrio ?></td>
+              <td class="text-uppercase" style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Urbanización/Barrio:</b></td>
+              <td class="text-uppercase"><?php echo $solicitante->urbanizacion_barrio ?></td>
             </tr>
             <tr>
-              <td style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Avenida/Calle:</b></td>
-              <td><?php echo $solicitante->avenida_calle ?></td>
+              <td class="text-uppercase" style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Avenida/Calle:</b></td>
+              <td class="text-uppercase"><?php echo $solicitante->avenida_calle ?></td>
             </tr>
             <tr>
-              <td style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Casa/Edificio/Apartamento:</b></td>
-              <td><?php echo $solicitante->casa_edificio_apartamento ?></td>
+              <td class="text-uppercase" style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Casa/Edificio/Apartamento:</b></td>
+              <td class="text-uppercase"><?php echo $solicitante->casa_edificio_apartamento ?></td>
             </tr>
           </tbody>
         </table>
@@ -54,26 +54,26 @@
       <div class="col-lg-6 animated fadeIn panel panel-default animated">
         <div class="panel-heading">
           <h5 class="text-muted text-primary">
-          <i class="fa fa-file"></i> Documentos Consignados
+          <i class="fa fa-file"></i> DOCUMENTOS CONSIGNADOS
           <a class="btn btn-success pull-right" href="<?php echo baseUrl ?>admin/solicitudes/create/<?php echo $solicitante->id ?>"><i class="fa fa-plus"></i> Agregar Solicitud</a>
           </h5>
         </div>
         <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
           <thead>
             <tr class="bg-primary text-white">
-              <th>Fecha Hora Ingreso</th>
-              <th>Paso Actual</th>
-              <th>Ver</th>
+              <th class="text-uppercase" width="35%" class="text-uppercase">Fecha Hora Ingreso</th>
+              <th class="text-uppercase" class="text-uppercase">Paso Actual</th>
+              <th class="text-uppercase" width="10%" class="text-uppercase">Ver</th>
             </tr>
           </thead>
           <tbody>
             <?php if ($solicitante->solicitudes): ?>
             <?php foreach ($solicitante->solicitudes as $c): ?>
             <tr>
-              <td>
+              <td class="text-uppercase">
                 <?php echo $c->fecha_hora_registrado ?>
               </td>
-              <td>
+              <td class="text-uppercase" class="text-uppercase">
                 
                 <?php if ($c->pasos->paso == 1): ?>
                 <button class="btn btn-info btn-default">Registrado</button>
@@ -89,7 +89,7 @@
                 <button class="btn btn-default">Procesado</button>
                 <?php endif ?>
               </td>
-              <td width="15%">
+              <td class="text-uppercase" class="text-uppercase" width="15%">
                 <a class="btn btn-default" href="<?php echo baseUrl ?>admin/solicitudes/<?php echo $c->id ?>"><i class="fa fa-search text-primary"></i></a>
               </td>
             </tr>
@@ -99,6 +99,7 @@
             <?php endif ?>
           </tbody>
         </table>
+        <br>
       </div>
     </div>
   </div>

@@ -34,9 +34,9 @@ var tipo_id = parts[1];
       <div class="row">
         <div class="col-lg-12">
           <div class="form-group">
-            <select id="TiposSelect" class="form-control" name="tipo_solicitud"  onchange="">
+            <select id="TiposSelect" class="form-control text-uppercase" name="tipo_solicitud"  onchange="">
               <option value="">Tipo de Solicitudes</option>
-              <option value="">-----------------</option>
+              <option value=""></option>
               <?php foreach ($tipos as $key => $t): ?>
                 <option value="<?php echo $t->organismo_id ?>-<?php echo $t->id ?>"><?php echo $t->nombre ?></option>
               <?php endforeach ?>
@@ -45,13 +45,13 @@ var tipo_id = parts[1];
         </div>
         <div class="col-lg-12">
           <div class="form-group">
-              <select name="requerimiento_categoria_id" id="CategoriasSelect" class="form-control" required> 
+              <select name="requerimiento_categoria_id" id="CategoriasSelect" class="form-control text-uppercase" required> 
               </select>
           </div>
         </div>
         <div class="col-lg-12">
           <div class="form-group">
-              <select name="organismo_id" id="OrganismosSelect" class="form-control" required> 
+              <select name="organismo_id" id="OrganismosSelect" class="form-control text-uppercase" required> 
               </select>
           </div>
         </div>

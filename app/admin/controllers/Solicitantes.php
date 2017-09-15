@@ -27,7 +27,7 @@ class Solicitantes
         $parroquias = Parroquia::where('municipio_id',$idMunicipio)->get();
         //var_dump($parroquias);
         echo "<option value=''>PARROQUIA</option>";
-        echo "<optgroup label='-------'></optgroup>";
+        echo "<option value=''></option>";
         foreach ($parroquias as $key => $parroquia) {
             echo '<option value="'.$parroquia->id.'">'.$parroquia->nombre.'</option>';
         } 

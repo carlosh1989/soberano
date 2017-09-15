@@ -21,16 +21,18 @@ class Solicitudes
     public function index()
     {
         extract($_GET);
+        
         if(isset($tipo))
         {
-            $solicitudes = Solicitud::where('tipo_solicitud_id',$tipo)->get();
+            $solicitudes = Solicitud::where('tipo_solicitud_id',$tipo)->where('estatus',1)->get();
         }
         else
         {
             $solicitudes = Solicitud::all();
         }
         
-        View(compact('solicitudes'));
+        $tipos = Tipo::all();
+        View(compact('solicitudes','tipos'));
     }
 
     public function create()
@@ -60,7 +62,7 @@ class Solicitudes
         $organismos = Organismo::where('id',$organismo_id)->get();
         //var_dump($parroquias);
         echo "<option value=''>ORGANISMO</option>";
-        echo "<optgroup label='-------'></optgroup>";
+        echo "<option value=''></option>";
         foreach ($organismos as $key => $organismo) {
             echo '<option value="'.$organismo->id.'">'.$organismo->tipo.'</option>';
         }
@@ -72,7 +74,7 @@ class Solicitudes
         $categorias = Categoria::where('tipo_solicitud_id',$tipo_id)->get();
         //var_dump($parroquias);
         echo "<option value=''>CATEGORIAS</option>";
-        echo "<optgroup label='-------'></optgroup>";
+        echo "<option value=''></option>";
         echo "<option value='0'>NINGUNA</option>";
         foreach ($categorias as $key => $categoria) {
             echo '<option value="'.$categoria->id.'">'.$categoria->nombre.'</option>';
