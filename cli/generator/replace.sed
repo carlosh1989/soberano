@@ -1,4 +1,4 @@
 
-s/${modulo}/supervisor/
-s/${controller}/Principal/
-s/${vista}/show/
+s/${modulo}/admin/
+s/${controller}/Consultas/
+s/${vista}/index/

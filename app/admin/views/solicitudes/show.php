@@ -26,7 +26,7 @@ display: none;
 </style>
 <div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h4 class="panel-title text-muted"><i class="fa fa-user fa-2x"></i> SOLICITUD<b> <?php echo strtoupper($solicitud->tipo_solicitud->nombre) ?></b>
+    <h4 class="panel-title text-muted text-uppercase"><i class="fa fa-user fa-2x"></i> SOLICITUD<b> <?php echo $solicitud->tipo_solicitud->nombre ?></b>
     </h4>
   </div>
   <div class="panel-body">
@@ -58,13 +58,20 @@ display: none;
               <td style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Estatus:</b></td>
               <td>
                 <?php if ($solicitud->estatus == 1): ?>
-                <a class="btn btn-primary" href="#"><i class="fa fa-gear"></i> Procesando</a>
+                <a class="btn btn-primary" href="#"><i class="fa fa-gear"></i> PROCESANDO</a>
+                <?php endif ?>
+                <?php if ($solicitud->estatus == 2): ?>
+                <a class="btn btn-success" href="#"><i class="fa fa-check-square"></i> APROBADO</a>
+                <?php endif ?>
+                <?php if ($solicitud->estatus == 3): ?>
+                <a class="btn btn-danger" href="#"><i class="fa fa-window-close"></i> RECHAZADO</a>
                 <?php endif ?>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
+      <?php if ($solicitud->estatus == 1): ?>
       <div class="col-lg-6 animated fadeIn panel panel-default animated">
         <div class="panel-heading">
           <h5 class="text-muted text-primary">
@@ -110,5 +117,30 @@ display: none;
       <?php endif ?>
       <br>
     </div>
+    <?php endif ?>
+    <?php if ($solicitud->estatus == 2): ?>
+    <div class="col-lg-6 animated fadeIn panel panel-default animated">
+      <div class="panel-heading">
+        <h5 class="text-muted text-primary">
+        <i class="fa fa-file"></i> INFORMACIÓN DE ENTREGA
+        </h5>
+      </div>
+      
+      <br>
+    </div>
+    <?php endif ?>
+    <?php if ($solicitud->estatus == 3): ?>
+    <div class="col-lg-6 animated fadeIn panel panel-default animated">
+      <div class="panel-heading">
+        <h5 class="text-muted text-primary">
+        <i class="fa fa-file"></i> OBSERVACIÓN
+        </h5>
+      </div>
+      <div class="panel-body">
+        <?php echo $solicitud->observacion ?>
+      </div>
+      <br>
+    </div>
+    <?php endif ?>
   </div>
 </div>

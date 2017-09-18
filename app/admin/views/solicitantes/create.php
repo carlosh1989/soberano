@@ -65,7 +65,7 @@ $("#IngresarSolicitante").submit();
       <?php echo Token::field() ?>
       <input type="hidden" name="fecha_hora_registro" value="<?php echo $solicitante->fecha_hora_registro ?>">
       <div class="row">
-        <div class="col-lg-1">
+        <div class="col-lg-2">
           <div class="form-group">
             <?php if (isset($solicitante->nacionalidad)): ?>
             <select class="form-control" name="nacionalidad" required readonly>
@@ -74,7 +74,7 @@ $("#IngresarSolicitante").submit();
             <?php else: ?>
             <select class="form-control" name="nacionalidad" required>
               <option value="">Nacionalidad</option>
-              <option value="">----------------</option>
+              <option value=""></option>
               <option value="V">V</option>
               <option value="E">E</option>
             </select>
@@ -93,7 +93,7 @@ $("#IngresarSolicitante").submit();
         <div class="col-lg-4">
           <div class="form-group">
             <?php if (isset($solicitante->nombre_apellido)): ?>
-            <input class="form-control" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" value="<?php echo $solicitante->nombre_apellido ?>" required readonly>
+            <input class="form-control text-uppercase" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" value="<?php echo $solicitante->nombre_apellido ?>" required readonly>
             <?php else: ?>
             <input class="form-control" type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required>
             <?php endif ?>
@@ -115,12 +115,12 @@ $("#IngresarSolicitante").submit();
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <input class="form-control" type="number" min="11" step="1" name="telefono1" placeholder="Telefono n°1" required>
+            <input class="form-control" data-inputmask="'mask': '99999999999'" type="text"  name="telefono1" placeholder="Telefono n°1" required>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <input class="form-control" type="number" min="11" step="1" name="telefono2" placeholder="Telefono n°2">
+            <input class="form-control" data-inputmask="'mask': '99999999999'" type="text" name="telefono2" placeholder="Telefono n°2">
           </div>
         </div>
         <div class="col-lg-4">
@@ -175,7 +175,7 @@ $("#IngresarSolicitante").submit();
         <div class="col-lg-4">
           <div class="form-group">
             <?php if (isset($solicitante->avenida_calle)): ?>
-            <input class="form-control" type="text" name="avenida_calle" placeholder="Avenida/Calle" value="<?php echo $solicitante->avenida_calle ?>" required>
+            <input class="form-control text-uppercase" type="text" name="avenida_calle" placeholder="Avenida/Calle" value="<?php echo $solicitante->avenida_calle ?>" required>
             <?php else: ?>
             <input class="form-control" type="text" name="avenida_calle" placeholder="Avenida/Calle" required>
             <?php endif ?>
@@ -184,9 +184,9 @@ $("#IngresarSolicitante").submit();
         <div class="col-lg-4">
           <div class="form-group">
             <?php if (isset($solicitante->casa_edificio_apartamento)): ?>
-            <input class="form-control" type="text" name="casa_edificio_apartamento" placeholder="Casa/Edificio/Apartamento" value="<?php echo $solicitante->casa_edificio_apartamento ?>" required>
+            <input class="form-control text-uppercase" type="text" name="casa_edificio_apartamento" placeholder="Casa/Edificio/Apartamento" value="<?php echo $solicitante->casa_edificio_apartamento ?>" required>
             <?php else: ?>
-            <input class="form-control" type="text" name="casa_edificio_apartamento" placeholder="Casa/Edificio/Apartamento" required>
+            <input class="form-control text-uppercase" type="text" name="casa_edificio_apartamento" placeholder="Casa/Edificio/Apartamento" required>
             <?php endif ?>
           </div>
         </div>

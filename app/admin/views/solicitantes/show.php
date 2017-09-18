@@ -5,7 +5,7 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-lg-6 animated fadeIn">
+      <div class="col-lg-6 animated fadeIn table-responsive">
         <table class="table table-user-information panel panel-default animated fadeIn">
           <tbody>
             <tr>
@@ -58,6 +58,7 @@
           <a class="btn btn-success pull-right" href="<?php echo baseUrl ?>admin/solicitudes/create/<?php echo $solicitante->id ?>"><i class="fa fa-plus"></i> Agregar Solicitud</a>
           </h5>
         </div>
+        <div class="table-responsive">
         <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
           <thead>
             <tr class="bg-primary text-white">
@@ -99,6 +100,7 @@
             <?php endif ?>
           </tbody>
         </table>
+        </div>
         <br>
       </div>
     </div>

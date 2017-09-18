@@ -55,7 +55,8 @@ class Login
 	                'id'	=> $usuario->id,
 	                'name'  => $usuario->name,
 	                'email' => $usuario->email,
-	                'role'		=> $usuario->role	
+	                'role'		=> $usuario->role,
+	                'organismo_id'=> $usuario->organismo_id
 	            );
 
 	           	$session->register(120); // Register for 2 hours.
@@ -83,7 +84,7 @@ class Login
 
 	public function sesion()
 	{
-		$usuario = Session::get('current_user');
+		$usuario = (object) Session::get('current_user');
 		//echo $usuario['role'];
 		echo $usuario->role;
 		//Arr::show(Session::get('usuario'));

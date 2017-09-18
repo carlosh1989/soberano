@@ -25,8 +25,8 @@
     SOLICITANTE REGISTRADOS
     </h5>
     <div class="row">
-      <div class="col-md-12">
-        <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
+      <div class="col-md-12 table-responsive">
+        <table class="table table-striped table-condensed animated fadeIn" data-striped="true">
           <thead>
             <tr class="bg-primary text-white">
               <th width="20%" class="text-uppercase">Nombre</th>

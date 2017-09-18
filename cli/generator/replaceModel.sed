@@ -1,4 +1,4 @@
 
-s/${modulo}/banco/
-s/${model}/Historia/
-s/${tabla}/historia_clinica/
+s/${modulo}/admin/
+s/${model}/Consultas/
+s/${tabla}/index/

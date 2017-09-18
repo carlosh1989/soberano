@@ -10,6 +10,7 @@ use App\Solicitante;
 use App\Solicitud;
 use App\Tipo;
 use Carbon\Carbon;
+use System\tools\session\Session;
 
 class Solicitudes
 {
@@ -21,18 +22,27 @@ class Solicitudes
     public function index()
     {
         extract($_GET);
-        
-        if(isset($tipo))
+        $usuario = (object) Session::get('current_user');
+        $organismo_id = $usuario->organismo_id; 
+
+        if(isset($tipo) and $tipo)
         {
-            $solicitudes = Solicitud::where('tipo_solicitud_id',$tipo)->where('estatus',1)->get();
+            $solicitudes = Solicitud::where('tipo_solicitud_id',$tipo)
+            ->where('estatus',1)
+            ->where('organismo_id',$organismo_id)
+            ->get();
+            $tipo_seleccion = Tipo::find($tipo);
         }
         else
         {
-            $solicitudes = Solicitud::all();
+            $solicitudes = Solicitud::where('organismo_id',$organismo_id)
+            ->where('estatus',1)
+            ->get();
+            $tipo_seleccion = "";
         }
         
         $tipos = Tipo::all();
-        View(compact('solicitudes','tipos'));
+        View(compact('solicitudes','tipos','tipo_seleccion'));
     }
 
     public function create()
@@ -81,6 +91,27 @@ class Solicitudes
         }
     }
 
+    public function estatus()
+    {
+        extract($_GET);
+        if(!isset($observacion))
+        {
+            //$data['observacion'] = $observacion;
+            $observacion ="";
+        }
+        //$data['solicitud_id'] = $solicitud_id;
+        //$data['estatus'] = $estatus;
+
+        $solicitud = Solicitud::find($solicitud_id);
+        $solicitud->estatus = $estatus;
+        $solicitud->observacion = $observacion;
+        $solicitud->save();
+        //Arr($solicitud);
+
+
+        echo json_encode($data);
+    }
+
     public function store()
     {
         //Arr($_POST);
@@ -92,13 +123,13 @@ class Solicitudes
         $solicitud->solicitante_id = $solicitante_id;
         $solicitud->tipo_solicitud_id = $tipo_solicitud_id;
         $solicitud->fecha_hora_registrado = Carbon::now();
+        $solicitud->fecha_hora_asignado_consignado = Carbon::now();
         $solicitud->estatus = 1;
         $solicitud->save();
 
         //tabla pivote de pasos
         $paso = new Paso;
         $paso->solicitud_id = $solicitud->id;
-        $paso->fecha_hora_registro = Carbon::now();
         $paso->paso = 2;
         $paso->save();
 

@@ -22,7 +22,7 @@ class Arr {
 
     public static function paginator($data)
     {
-		return (new Paginator)->perPage(1)->make(Arr::reduce($data));
+		return (new Paginator)->perPage(20)->make(Arr::reduce($data));
     }
 
     public function infiniteScroll($data)

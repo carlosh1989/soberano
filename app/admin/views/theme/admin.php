@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/components-font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/bootstrap-side-navbar/source/assets/stylesheets/navbar-fixed-side.css">
+    <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/animate.css/animate.min.css">
     <script src="<?php echo baseUrl ?>assets/bower/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.css">
     <script src="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.js"></script>
@@ -60,33 +61,41 @@
         <div class="col-sm-3 col-lg-2">
           <nav class="navbar navbar-default navbar-fixed-side">
             <div class="container">
-              <div class="navbar-header">
+              <div class="navbar-header bg-primary text-white">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a style="color:#fff;" class="navbar-brand text-white" href="#">
                   <!-- <img style="width: 47px;" id="profile-img" class="profile-img-card" src="" /> -->Soberano</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="<?php echo baseUrl ?>">INICIO</a></li>
-                    <li><a href="<?php echo baseUrl ?>admin/solicitantes">SOLICITANTES</a></li>
-                    <li><a href="<?php echo baseUrl ?>admin/solicitudes">SOLICITUDES</a></li>
+                    <li class="active"><a href="<?php echo baseUrl ?>"><i class="fa fa-home"></i> INICIO</a></li>
+                    <li><a href="<?php echo baseUrl ?>admin/solicitantes"><i class="fa fa-user"></i> SOLICITANTES</a></li>
+                    <li><a href="<?php echo baseUrl ?>admin/solicitudes"><i class="fa fa-clipboard"></i> SOLICITUDES</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#" id="" data-toggle="collapse" data-target="#submenu1" aria-expanded="false"><i class="fa fa-cog"></i> CONSULTAS</a>
+                      <ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
+                        <li><a href="<?php echo baseUrl ?>admin/consultas/cerradas"><i class="fa fa-check-square"></i> CERRADAS</a></li>
+                        <li><a href="<?php echo baseUrl ?>auth/login/logout"><i class="fa fa-check-square"></i> APROBADAS</a></li>
+                        <li><a href="<?php echo baseUrl ?>auth/login/logout"><i class="fa fa-window-close"></i> RECHAZADAS</a></li>
+                      </ul>
+                    </li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
                       <li><a href="#" id="" data-toggle="collapse" data-target="#submenu1" aria-expanded="false"><i class="fa fa-cog"></i> Opciones</a>
                       <ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
-                        <li><a href="<?php echo baseUrl ?>auth/login/logout">Salir</a></li>
+                        <li><a href="<?php echo baseUrl ?>auth/login/logout"><i class="fa fa-out"></i> Salir</a></li>
                       </ul>
                     </li>
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
             </nav>
-            
           </div>
           <div class="col-sm-9 col-lg-10">
             <!-- <img width="100%" height="130px;" src="<?php echo baseUrl ?>/assets/img/banner.jpg" alt=""> -->
@@ -165,6 +174,8 @@
       $buttons += "<input type='button' value='Next &gt;&gt;' onclick='sort("+($cur + 1)+")' "+$nextDis+">";
       return $buttons;
       }
+
+    
       </script>
     </body>
   </html>
